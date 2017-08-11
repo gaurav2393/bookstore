@@ -17,7 +17,6 @@ app.use(require('webpack-dev-middleware')(compiler, {
     noInfo: true,
     publicPath: config.output.publicPath
 }));
-app.use('/', express.static('dist'));
 app.use(webpackHotMiddleware(compiler));
 app.listen(port, function (error) {
     if (error) {
@@ -75,5 +74,5 @@ app.get('/bookDetail/:tagId', function (req, res) {
 app.get('/image/:imgName', function (req, res) {
     res.sendFile(path.join(__dirname, '../assets/img/' + req.params.imgName));
 });
-
+app.use('/public/', express.static('./dist'));
 console.log(`listening on ${port}`)
