@@ -1,7 +1,7 @@
 {
   "name": "tiles",
   "version": "1.0.0",
-  "description": "Tiles search and description",
+  "description": "Book search and detail",
   "main": "index.js",
   "scripts": {
     "eslint": "eslint /src/*.{js,jsx} --quiet",
@@ -11,7 +11,7 @@
     "start": "npm-run-all --parallel dev server eslint",
     "start:prod": "npm-run-all --parallel prod server"
   },
-  "author": "Shobhit Singh",
+  "author": "Gaurav Gera",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/shobhitsingh29"
