@@ -39,7 +39,7 @@ app.get('/booksData', function (req, res) {
 
 app.put('/booksData/:id', function (req, res) {
 
-    var id = req.params.id;    
+    var id = req.params.id;
     filePath = path.join(__dirname, '../data/data.json');
     fs.readFile(filePath, 'utf8', function (err, data) {
         if (err) {
@@ -51,12 +51,12 @@ app.put('/booksData/:id', function (req, res) {
             var items = jsonObject.items;
             var filteredArray = items.filter(function (items) {
                 return items.id !== id;
-            });            
-            jsonObject.items = filteredArray;            
-            jsonObject.items.push(req.body)            
+            });
+            jsonObject.items = filteredArray;
+            jsonObject.items.push(req.body)
             fs.writeFile(filePath, JSON.stringify(jsonObject), 'utf8', function (err) {
                 if (err)
-                    throw err;                
+                    throw err;
                 res.send((JSON.stringify(jsonObject)));
             });
         }

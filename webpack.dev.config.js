@@ -1,10 +1,9 @@
-const path = require("path");
-let  webpack = require('webpack');
+const path = require('path');
+const webpack = require('webpack');
 module.exports = {
     devtool: "inline-source-map",
-    entry: [
-        'webpack-hot-middleware/client?reload=true',
-        path.resolve(__dirname, "src/js/main.js")
+    entry: ['webpack-hot-middleware/client?reload=true',
+        path.resolve(__dirname, "./src/js/main.js")
     ],
     output: {
         path: path.resolve(__dirname, "./dist"),
@@ -15,23 +14,23 @@ module.exports = {
         extensions: ['.js', '.jsx', '.json']
     },
     devServer: {
+        port: 8080,
         hot: true,
         publicPath: "/",
         historyApiFallback: true
     },
-    plugins: [new webpack.HotModuleReplacementPlugin({
-        multiStep: false
-    }), new webpack.NamedModulesPlugin()],
+    plugins: [new webpack.HotModuleReplacementPlugin(),
+        new webpack.NamedModulesPlugin()],
     module: {
         loaders: [
             {
-                enforce: 'pre',
-                test: /\.js$/,
-                loader: 'eslint-loader',
+                enforce : 'pre',
+                test : /\.js$/,
+                loader : 'eslint-loader',
                 options: {
                     fix: true
                 },
-                exclude: /(node_modules)/
+                exclude : /(node_modules)/
             },
             {
                 test: /\.js$/,
@@ -48,4 +47,5 @@ module.exports = {
             }
         ]
     }
-};
+}
+
